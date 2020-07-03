@@ -7,46 +7,10 @@ import {createStore} from "redux";
 import allReducers from "./reducers";
 import {Provider} from "react-redux";
 
-const store = createStore(allReducers)
-
-//actions 
-
-const increment = ()=> {
-  return{
-    type: "INCREMENT"
-  };
-};
-
-
-const decrement = ()=> {
-  return{
-    type: "DECREMENT"
-  };
-};
-
-//reducer 
-const counter = (state = 0, action)=>{
-  switch(action.type){
-    case "INCREMENT": 
-      return state +1;
-    case "DECREMENT":
-      return state -1;
-  } ;
-};
-
-//store
-
-
-
-//dispatch 
-store.dispatch(increment());
-store.dispatch(increment());
-store.dispatch(increment());
-store.dispatch(increment());
-store.dispatch(increment());
-store.dispatch(increment());
-store.dispatch(increment());
-store.dispatch(decrement());
+const store = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
 
 
 

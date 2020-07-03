@@ -10,3 +10,10 @@ export const decrement =() =>{
         type: "DECREMENT"
     };
 };
+
+
+export const addTask=() => {
+    return{
+        type: "ADDTASK"
+    }
+}
