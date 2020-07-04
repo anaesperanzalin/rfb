@@ -8,6 +8,8 @@ function App() {
   const counter = useSelector(state=> state.counterReducer);
   const isLogged= useSelector(state=>state.isLogged);
   const taskList= useSelector(state=> state.addTaskReducer);
+  const [taskName, setTaskName] = React.useState("");
+
   const dispatch = useDispatch();
 
   return (
@@ -29,7 +31,12 @@ function App() {
         <h1>Make your todo list here</h1>
         <p>Enter your Tasks:</p>
         <input
-          type="text"
+          type="taskname"
+          name="taskname"
+          value={taskName}
+          onChange={(e)=>setTaskName(e.target.value)}
+          
+  
         />
       </form>
         <br/>
