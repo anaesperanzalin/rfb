@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {useSelector, useDispatch} from "react-redux";
 import {increment} from "./actions";
 import {decrement} from "./actions";
 import {addTask} from "./actions";
+import {connect} from "redux";
+import {UsersList} from "./reducers/UsersList";
+ 
 
 function App() {
   const counter = useSelector(state=> state.counterReducer);
   const isLogged= useSelector(state=>state.isLogged);
   const taskList= useSelector(state=> state.addTaskReducer);
   const [taskName, setTaskName] = React.useState("");
+  const usersList= useSelector(state=>state.usersReducer);
 
   const dispatch = useDispatch();
 
@@ -35,27 +39,24 @@ function App() {
           name="taskname"
           value={taskName}
           onChange={(e)=>setTaskName(e.target.value)}
-          
-  
         />
       </form>
         <br/>
          <button
-         onClick={()=> dispatch(addTask())}
+         onClick={()=> dispatch(addTask(taskName))}
          
          >Submit</button>
 
-        <h3>
-          And here's the task list:
-          {taskList}
-        </h3>
-
-
+        <h3>And here's the task list:</h3>
+        {taskList.map?
+          taskList.map((task)=>
+          <p>{task.taskName}</p>)
+          :null}
+        <h4>And here is the users List: </h4>
+        {UsersList}
+          
+          
     </div>
-
-
-
-
 
   );
 }

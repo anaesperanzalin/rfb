@@ -1,7 +1,8 @@
 const addTaskReducer = (state = [], action)=>{
     switch(action.type){
         case "ADDTASK":
-                return [...state]
+                return [...state, 
+                    {taskName: action.payload} ]
         default: return []
 
     }

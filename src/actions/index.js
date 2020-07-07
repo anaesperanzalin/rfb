@@ -1,6 +1,7 @@
 export const increment= () => {
     return{
         type: "INCREMENT"
+       
     };
 };
 
@@ -12,8 +13,9 @@ export const decrement =() =>{
 };
 
 
-export const addTask=() => {
+export const addTask=(taskName) => {
     return{
-        type: "ADDTASK"
+        type: "ADDTASK",
+        payload: taskName
     }
 }
